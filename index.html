@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JC Optimización Digitales | Documentos Profesionales</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+
+```
+:root {
+--primary: #0f172a;
+}
+
+.tail-container {
+font-family: 'Inter', system_ui, sans-serif;
+}
+
+.hero-bg {
+background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f766e 100%);
+}
+
+.card-hover {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+transform: translateY(-12px) scale(1.03);
+box-shadow: 0 25px 50px -12px rgb(15 23 42);
+}
+
+.modal {
+animation: modalPop 0.3s ease forwards;
+}
+
+@keyframes modalPop {
+from { opacity: 0; transform: scale(0.95) translateY(20px); }
+to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.service-icon {
+transition: transform 0.4s ease;
+}
+
+.card-hover:hover .service-icon {
+transform: rotate(12deg) scale(1.15);
+}
+
+.cart-count {
+animation: bounce 0.6s ease;
+}
+</style>
+```
+
+</head>
+<body class="tail-container bg-slate-950 text-slate-200">
+<!-- NAVEGACIÓN -->
+<nav class="bg-slate-900 border-b border-slate-800 fixed w-full z-50">
+<div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 bg-gradient-to-br from-sky-500 to-teal-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">J</div>
+<div>
+<span class="text-2xl font-semibold tracking-tight text-white">JC</span>
+<span class="text-2xl font-medium text-teal-400">Optimización</span>
+</div>
+</div>
+
+```
+<div class="hidden md:flex items-center gap-8 text-sm font-medium">
+<a href="#servicios" onclick="smoothScrollTo('servicios')" class="hover:text-teal-400 transition-colors cursor-pointer">Servicios</a>
+<a href="#como-funciona" onclick="smoothScrollTo('como-funciona')" class="hover:text-teal-400 transition-colors cursor-pointer">Cómo funciona</a>
+<a href="#contacto" onclick="smoothScrollTo('contacto')" class="hover:text-teal-400 transition-colors cursor-pointer">Contacto</a>
+</div>
+
+<button onclick="toggleCartModal()"
+class="relative flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-5 py-3 rounded-3xl text-sm font-medium transition-all border border-slate-700">
+<i class="fas fa-shopping-cart text-xl"></i>
+<span class="hidden md:inline">Carrito</span>
+<span id="cart-count"
+class="cart-count absolute -top-2 -right-2 bg-teal-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md">0</span>
+</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg min-h-screen flex items-center pt-20 relative">
+<div class="max-w-5xl mx-auto px-6 text-center">
+<div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl text-sm mb-8">
+<div class="w-3 h-3 bg-teal-400 rounded-full animate-pulse"></div>
+<span class="font-medium">Servicios digitales en Colombia</span>
+</div>
+
+<h1 class="text-6xl md:text-7xl font-bold leading-tight max-w-4xl mx-auto tracking-tighter">
+Optimiza tu imagen profesional<br>con documentos bien hechos
+</h1>
+
+<p class="mt-8 text-xl text-slate-300 max-w-xl mx-auto">
+Hoja de vida, presentaciones, Word y Excel que destacan.
+Resultados en 24-48 horas.
+</p>
+
+<div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+<button onclick="smoothScrollTo('servicios')"
+class="bg-white text-slate-900 px-10 py-5 rounded-3xl font-semibold text-lg hover:scale-105 transition-transform shadow-2xl shadow-teal-500/30 flex items-center gap-3 mx-auto sm:mx-0">
+Ver servicios
+<i class="fas fa-arrow-down"></i>
+</button>
+
+<button onclick="window.open('https://wa.me/573043854745?text=Hola%20JC%2C%20quiero%20más%20información', '_blank')"
+class="border border-white/30 hover:border-white/60 px-8 py-5 rounded-3xl font-medium flex items-center gap-3 transition-all mx-auto sm:mx-0">
+<i class="fab fa-whatsapp text-2xl text-green-400"></i>
+Hablar por WhatsApp
+</button>
+</div>
+
+<div class="mt-16 flex flex-wrap justify-center gap-8 text-sm opacity-75">
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-teal-400"></i>
+<span>Entrega en 48h</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-teal-400"></i>
+<span>100% personalizado</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="fas fa-check-circle text-teal-400"></i>
+<span>Pago seguro Colombia</span>
+</div>
+</div>
+</div>
+
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<div class="text-xs tracking-widest mb-2">SCROLL</div>
+<div class="w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
+</div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 bg-slate-950">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<div class="inline-flex items-center gap-2 text-teal-400 text-sm font-medium tracking-wider">
+<i class="fas fa-briefcase"></i>
+NUESTROS SERVICIOS
+</div>
+<h2 class="text-5xl font-semibold mt-3">Elige lo que necesitas</h2>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid"></div>
+</div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como-funciona" class="py-24 bg-slate-900">
+<div class="max-w-5xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<div class="text-teal-400 text-sm font-medium mb-4">PROCESO SIMPLE</div>
+<h2 class="text-5xl font-semibold leading-tight">4 pasos y ya tienes<br>tu documento profesional</h2>
+
+<div class="mt-12 space-y-10">
+<div class="flex gap-6">
+<div class="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl font-bold text-teal-400 shrink-0">1</div>
+<div>
+<h3 class="font-semibold text-xl">Elige el servicio</h3>
+<p class="text-slate-400 mt-2">Selecciona lo que necesitas y agrégalo al carrito.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl font-bold text-teal-400 shrink-0">2</div>
+<div>
+<h3 class="font-semibold text-xl">Completa tus datos</h3>
+<p class="text-slate-400 mt-2">Nombre, email y WhatsApp para enviarte el archivo.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl font-bold text-teal-400 shrink-0">3</div>
+<div>
+<h3 class="font-semibold text-xl">Realiza el pago seguro</h3>
+<p class="text-slate-400 mt-2">Nequi o transferencia (datos al finalizar).</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-2xl font-bold text-teal-400 shrink-0">4</div>
+<div>
+<h3 class="font-semibold text-xl">Recibe tu documento</h3>
+<p class="text-slate-400 mt-2">En menos de 48 horas por WhatsApp o correo.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="relative">
+<div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-10 shadow-2xl">
+<div class="aspect-video bg-slate-950 rounded-2xl flex items-center justify-center border border-slate-700">
+<div class="text-center">
+<i class="fas fa-file-pdf text-8xl text-teal-400/30"></i>
+<div class="mt-6 text-slate-400">Tu documento listo</div>
+</div>
+</div>
+</div>
+<div class="absolute -top-6 -right-6 bg-teal-500 text-white text-xs font-bold px-6 py-3 rounded-3xl shadow-xl rotate-12">
+Entrega en 48h
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto" class="bg-black py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-3 gap-12">
+<div>
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 bg-gradient-to-br from-sky-500 to-teal-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">J</div>
+<span class="text-3xl font-semibold">JC Optimización Digitales</span>
+</div>
+<p class="mt-6 text-slate-400 text-sm leading-relaxed max-w-xs">
+Especialistas en documentos profesionales que te ayudan a conseguir el trabajo de tus sueños.
+</p>
+<div class="mt-10">
+<a href="https://wa.me/573043854745" target="_blank"
+class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-3xl text-sm font-medium transition-all">
+<i class="fab fa-whatsapp text-2xl"></i>
+<span>Chatea por WhatsApp</span>
+</a>
+</div>
+</div>
+
+<div>
+<h4 class="font-medium text-slate-300 mb-6">Servicios</h4>
+<ul class="space-y-4 text-sm text-slate-400">
+<li>Optimización de Hoja de Vida</li>
+<li>Presentaciones Profesionales</li>
+<li>Documentos en Word</li>
+<li>Plantillas y Automatización Excel</li>
+</ul>
+</div>
+
+<div>
+<h4 class="font-medium text-slate-300 mb-6">Contacto</h4>
+<div class="space-y-4 text-sm">
+<div class="flex items-center gap-3">
+<i class="fas fa-map-marker-alt text-teal-400"></i>
+<span>Santa Marta, Colombia</span>
+</div>
+<div>
+<a href="mailto:contacto@jcoptimizacion.com" class="hover:text-teal-400 transition-colors">
+contacto@jcoptimizacion.com
+</a>
+</div>
+<div class="text-xs text-slate-500 mt-12">
+© 2026 JC Optimización Digitales.<br>
+Todos los derechos reservados.
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- MODAL CARRITO -->
+<div id="cart-modal" class="fixed inset-0 bg-black/70 hidden items-end md:items-center justify-center z-[100]" style="display:none">
+<div class="bg-slate-900 w-full max-w-lg md:rounded-3xl max-h-[90vh] overflow-hidden modal">
+<div class="flex justify-between items-center px-8 py-6 border-b border-slate-700">
+<div class="flex items-center gap-3">
+<i class="fas fa-shopping-cart text-2xl"></i>
+<h3 class="font-semibold text-2xl">Tu carrito</h3>
+</div>
+<button onclick="toggleCartModal()" class="text-3xl text-slate-400 hover:text-white">×</button>
+</div>
+
+<div id="cart-items" class="p-8 space-y-6 max-h-[420px] overflow-auto"></div>
+
+<div class="p-8 border-t border-slate-700 bg-slate-950">
+<div class="flex justify-between text-lg mb-6">
+<span class="text-slate-400">Total</span>
+<span id="cart-total" class="font-semibold text-3xl text-white">$0</span>
+</div>
+
+<button onclick="goToCheckout()"
+class="w-full bg-gradient-to-r from-teal-500 to-sky-500 hover:from-teal-600 hover:to-sky-600 py-5 rounded-3xl font-semibold text-lg transition-all active:scale-95">
+Proceder al pago
+</button>
+
+<button onclick="toggleCartModal()"
+class="w-full mt-3 text-slate-400 hover:text-white py-3 text-sm font-medium">
+Seguir comprando
+</button>
+</div>
+</div>
+</div>
+
+<!-- MODAL CHECKOUT -->
+<div id="checkout-modal" class="fixed inset-0 bg-black/70 items-center justify-center z-[110]" style="display:none">
+<div class="bg-slate-900 w-full max-w-xl md:rounded-3xl overflow-hidden modal max-h-[95vh] overflow-auto mx-4">
+<div class="px-8 py-6 border-b border-slate-700 flex justify-between items-center">
+<h3 class="font-semibold text-2xl">Finalizar compra</h3>
+<button onclick="closeCheckoutModal()" class="text-3xl leading-none text-slate-400">×</button>
+</div>
+
+<div class="p-8">
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-medium text-slate-400 mb-2">Nombre completo</label>
+<input id="client-name" type="text"
+class="w-full bg-slate-800 border border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal-400 transition-colors"
+placeholder="Juan Pérez">
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-medium text-slate-400 mb-2">Email</label>
+<input id="client-email" type="email"
+class="w-full bg-slate-800 border border-slate-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal-400 transition-colors"
+placeholder="tu@email.com">
+</div>
+<div class="col-span-2">
+<label class="block text-xs font-medium text-slate-400 mb-2">Número de WhatsApp</label>
+<div class="flex">
+<div class="bg-slate-800 border border-r-0 border-slate-700 px-5 rounded-l-2xl flex items-center text-slate-400">+57</div>
+<input id="client-whatsapp" type="tel"
+class="flex-1 bg-slate-800 border border-slate-700 rounded-r-2xl px-5 py-4 focus:outline-none focus:border-teal-400 transition-colors"
+placeholder="300 123 4567">
+</div>
+</div>
+</div>
+
+<div class="mt-10">
+<h4 class="font-medium text-sm text-slate-400 mb-4">Resumen del pedido</h4>
+<div id="checkout-summary" class="space-y-4"></div>
+</div>
+
+<div class="mt-12">
+<h4 class="font-medium text-sm text-slate-400 mb-4">Método de pago</h4>
+
+<div class="bg-slate-800 border border-slate-700 p-6 rounded-3xl mb-4">
+<div class="flex items-center gap-6">
+<i class="fas fa-mobile-alt text-5xl text-green-400"></i>
+<div class="flex-1">
+<div class="font-semibold">Nequi</div>
+<div class="text-xs text-slate-400 mt-1">Cuenta: 3043854745</div>
+<button onclick="copyNequiNumber()" class="mt-2 text-teal-400 hover:text-teal-300 text-xs font-medium flex items-center gap-1">
+<i class="fas fa-copy"></i> Copiar número
+</button>
+</div>
+</div>
+<button onclick="confirmPayment()"
+class="w-full mt-5 bg-green-600 hover:bg-green-700 py-4 rounded-2xl font-semibold text-sm transition-all flex items-center justify-center gap-3">
+<i class="fab fa-whatsapp text-xl"></i>
+YA PAGUÉ, CONFIRMAR POR WHATSAPP
+</button>
+</div>
+</div>
+</div>
+
+<div class="bg-slate-950 p-8 border-t border-slate-700 text-center text-xs text-slate-400">
+Pago seguro • Protección de datos
+</div>
+</div>
+</div>
+
+<!-- MODAL ÉXITO -->
+<div id="success-modal" class="fixed inset-0 bg-black/80 items-center justify-center z-[120]" style="display:none">
+<div class="bg-slate-900 max-w-md w-full mx-4 rounded-3xl p-10 text-center modal">
+<div class="mx-auto w-24 h-24 bg-green-500/10 rounded-full flex items-center justify-center mb-8">
+<i class="fas fa-check text-6xl text-green-400"></i>
+</div>
+
+<h3 class="text-3xl font-semibold mb-3">¡Solicitud enviada!</h3>
+<p class="text-slate-400">Gracias <span id="success-name" class="font-medium text-white"></span>. Hemos recibido tu pedido y te contactaremos en cuanto verifiquemos el pago.</p>
+
+<div class="my-10 border border-dashed border-slate-700 rounded-2xl p-6 text-left text-sm">
+<div class="flex justify-between mb-4">
+<span class="text-slate-400">Total a pagar</span>
+<span id="success-total" class="font-semibold"></span>
+</div>
+<div id="success-services" class="text-teal-300 text-xs space-y-1"></div>
+</div>
+
+<button onclick="finishPurchase()"
+class="w-full py-6 bg-gradient-to-r from-teal-500 to-sky-500 rounded-3xl font-semibold">
+Cerrar y volver al inicio
+</button>
+
+<div class="mt-6 text-xs text-slate-400">
+Recibirás tu documento optimizado por WhatsApp
+</div>
+</div>
+</div>
+
+<script>
+const services = [
+{ id: 1, name: "Optimización de Hoja de Vida", desc: "Diseño moderno, palabras clave ATS y formato perfecto para reclutadores.", price: 20000, icon: "fas fa-file-alt" },
+{ id: 2, name: "Presentaciones Profesionales", desc: "PowerPoint o Google Slides impactantes con diseño corporativo.", price: 15000, icon: "fas fa-project-diagram" },
+{ id: 3, name: "Documentos en Word", desc: "Cartas, informes, contratos o manuales con formato impecable.", price: 15000, icon: "fas fa-file-word" },
+{ id: 4, name: "Plantillas y Automatización en Excel", desc: "Tablas dinámicas, dashboards y macros para ahorrar tiempo.", price: 25000, icon: "fas fa-table" }
+]
+
+let cart = []
+
+function renderServices() {
+const container = document.getElementById('services-grid')
+container.innerHTML = ''
+services.forEach(service => {
+const card = document.createElement('div')
+card.className = 'bg-slate-900 border border-slate-800 rounded-3xl p-8 card-hover group'
+card.innerHTML = `
+<div class="h-12 w-12 bg-slate-800 rounded-2xl flex items-center justify-center text-3xl mb-8 service-icon">
+<i class="${service.icon}"></i>
+</div>
+<h3 class="font-semibold text-2xl mb-2">${service.name}</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-8">${service.desc}</p>
+<div class="flex items-baseline justify-between">
+<div>
+<span class="text-4xl font-semibold text-white">$${service.price.toLocaleString('es-CO')}</span>
+<span class="text-xs text-slate-400">COP</span>
+</div>
+<button onclick="addToCart(${service.id}); event.stopPropagation()"
+class="bg-teal-500 hover:bg-teal-600 text-white px-8 py-4 rounded-3xl text-sm font-medium transition-all">
+Añadir al carrito
+</button>
+</div>
+`
+container.appendChild(card)
+})
+}
+
+function addToCart(id) {
+const service = services.find(s => s.id === id)
+if (!service) return
+const existing = cart.find(item => item.id === id)
+if (existing) { existing.quantity += 1 }
+else { cart.push({ ...service, quantity: 1 }) }
+updateCartCount()
+showToast(`${service.name} agregado al carrito`)
+if (cart.length === 1) setTimeout(() => toggleCartModal(), 800)
+}
+
+function removeFromCart(id) {
+cart = cart.filter(item => item.id !== id)
+renderCart()
+updateCartCount()
+}
+
+function changeQuantity(id, change) {
+const item = cart.find(i => i.id === id)
+if (!item) return
+item.quantity = Math.max(1, item.quantity + change)
+renderCart()
+}
+
+function renderCart() {
+const container = document.getElementById('cart-items')
+container.innerHTML = ''
+if (cart.length === 0) {
+container.innerHTML = `<div class="text-center py-12 text-slate-400"><i class="fas fa-shopping-cart text-6xl opacity-20 mb-4 block"></i><p>Tu carrito está vacío</p></div>`
+document.getElementById('cart-total').textContent = '$0'
+return
+}
+let total = 0
+cart.forEach(item => {
+const itemTotal = item.price * item.quantity
+total += itemTotal
+const div = document.createElement('div')
+div.className = "flex gap-5 bg-slate-800 rounded-2xl p-5"
+div.innerHTML = `
+<div class="flex-1">
+<div class="font-medium">${item.name}</div>
+<div class="text-xs text-slate-400">$${item.price.toLocaleString('es-CO')} × ${item.quantity}</div>
+</div>
+<div class="text-right">
+<div class="font-semibold text-lg">$${itemTotal.toLocaleString('es-CO')}</div>
+<div class="flex items-center gap-3 mt-4">
+<button onclick="changeQuantity(${item.id}, -1)" class="w-6 h-6 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs flex items-center justify-center">-</button>
+<span class="w-6 text-center text-sm">${item.quantity}</span>
+<button onclick="changeQuantity(${item.id}, 1)" class="w-6 h-6 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs flex items-center justify-center">+</button>
+<button onclick="removeFromCart(${item.id})" class="ml-3 text-red-400 hover:text-red-500"><i class="fas fa-trash text-sm"></i></button>
+</div>
+</div>
+`
+container.appendChild(div)
+})
+document.getElementById('cart-total').innerHTML = `$${total.toLocaleString('es-CO')}`
+}
+
+function updateCartCount() {
+const countEl = document.getElementById('cart-count')
+const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0)
+countEl.textContent = totalItems
+}
+
+function toggleCartModal() {
+const modal = document.getElementById('cart-modal')
+const isHidden = modal.style.display === 'none' || modal.style.display === ''
+modal.style.display = isHidden ? 'flex' : 'none'
+if (isHidden) renderCart()
+}
+
+function goToCheckout() {
+if (cart.length === 0) return
+document.getElementById('cart-modal').style.display = 'none'
+document.getElementById('checkout-modal').style.display = 'flex'
+renderCheckoutSummary()
+}
+
+function closeCheckoutModal() {
+document.getElementById('checkout-modal').style.display = 'none'
+}
+
+function renderCheckoutSummary() {
+const container = document.getElementById('checkout-summary')
+container.innerHTML = ''
+let total = 0
+cart.forEach(item => {
+const itemTotal = item.price * item.quantity
+total += itemTotal
+const div = document.createElement('div')
+div.className = "flex justify-between text-sm"
+div.innerHTML = `<span>${item.name} × ${item.quantity}</span><span class="font-medium">$${itemTotal.toLocaleString('es-CO')}</span>`
+container.appendChild(div)
+})
+const totalDiv = document.createElement('div')
+totalDiv.className = "border-t border-slate-700 pt-4 mt-4 flex justify-between font-semibold text-lg"
+totalDiv.innerHTML = `<span>Total</span><span>$${total.toLocaleString('es-CO')}</span>`
+container.appendChild(totalDiv)
+}
+
+function copyNequiNumber() {
+navigator.clipboard.writeText("3043854745").then(() => showToast("Número copiado"))
+}
+
+function confirmPayment() {
+const name = document.getElementById('client-name').value.trim()
+const email = document.getElementById('client-email').value.trim()
+const whatsapp = document.getElementById('client-whatsapp').value.trim()
+if (!name || !email || !whatsapp) { alert("Por favor completa todos los campos del formulario."); return }
+let total = 0
+cart.forEach(item => total += item.price * item.quantity)
+let message = `Hola JC, ya realicé el pago por Nequi.%0A%0A*Mis datos:*%0ANombre: ${name}%0AEmail: ${email}%0AWhatsApp: ${whatsapp}%0A%0A*Pedido:*%0A`
+cart.forEach(item => { message += `• ${item.name} x${item.quantity} = $${(item.price * item.quantity).toLocaleString('es-CO')}%0A` })
+message += `%0A*Total pagado: $${total.toLocaleString('es-CO')} COP*%0A%0A¡Gracias!`
+window.open(`https://wa.me/573043854745?text=${message}`, '_blank')
+document.getElementById('success-name').textContent = name.split(' ')[0]
+document.getElementById('success-total').innerHTML = `$${total.toLocaleString('es-CO')} COP`
+let servicesHTML = ''
+cart.forEach(item => { servicesHTML += `<div class="flex justify-between"><span>${item.name}</span><span class="font-medium">×${item.quantity}</span></div>` })
+document.getElementById('success-services').innerHTML = servicesHTML
+closeCheckoutModal()
+document.getElementById('success-modal').style.display = 'flex'
+}
+
+function finishPurchase() {
+cart = []
+updateCartCount()
+document.getElementById('success-modal').style.display = 'none'
+window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function showToast(text) {
+const toast = document.createElement('div')
+toast.style.cssText = `position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#14b8a6;color:white;padding:16px 28px;border-radius:9999px;font-size:14px;box-shadow:0 10px 15px -3px rgb(0 0 0/.3);z-index:9999;display:flex;align-items:center;gap:12px;`
+toast.innerHTML = `<i class="fas fa-check-circle"></i><span>${text}</span>`
+document.body.appendChild(toast)
+setTimeout(() => { toast.style.transition = 'all .4s ease'; toast.style.opacity = '0'; toast.style.transform = 'translate(-50%,20px)'; setTimeout(() => toast.remove(), 400) }, 2800)
+}
+
+function smoothScrollTo(section) {
+const el = document.getElementById(section)
+if (el) el.scrollIntoView({ behavior: 'smooth' })
+}
+
+document.addEventListener('keydown', e => {
+if (e.key === "Escape") {
+document.getElementById('cart-modal').style.display = 'none'
+closeCheckoutModal()
+document.getElementById('success-modal').style.display = 'none'
+}
+})
+
+renderServices()
+updateCartCount()
+</script>
+```
+
+</body>
+</html>
