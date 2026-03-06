@@ -731,7 +731,12 @@ function addToCart(id) {
   else { cart.push({ ...service, quantity: 1 }) }
   updateCartCount()
   showToast(`${service.name} agregado`)
-  if (cart.length === 1) setTimeout(() => toggleCartModal(), 800)
+  if (cart.length === 1) {
+    setTimeout(() => {
+      document.getElementById('cart-modal').style.display = 'flex'
+      renderCart()
+    }, 800)
+  }
 }
 
 function removeFromCart(id) { cart = cart.filter(item => item.id !== id); renderCart(); updateCartCount() }
