@@ -456,58 +456,58 @@ const services = [
 {
 id:1,
 name:"Optimización de Hoja de Vida",
-price:12000,
-icon:"fas fa-file-user",
-desc:"Optimización profesional de tu CV para destacar ante reclutadores."
+price:20000,
+icon:"fas fa-user-tie",
+desc:"Optimización profesional de tu hoja de vida para mejorar tu perfil laboral."
 },
 {
 id:2,
 name:"Presentaciones Profesionales",
 price:15000,
-icon:"fas fa-chart-pie",
-desc:"Diseño de presentaciones modernas para trabajos o proyectos."
+icon:"fas fa-chart-line",
+desc:"Diseño de presentaciones claras, modernas y bien estructuradas."
 },
 {
 id:3,
 name:"Documentos en Word",
-price:10000,
+price:15000,
 icon:"fas fa-file-word",
-desc:"Creación o mejora de documentos bien estructurados y profesionales."
+desc:"Redacción y organización profesional de documentos."
 },
 {
 id:4,
 name:"Plantillas y Automatización en Excel",
-price:20000,
+price:25000,
 icon:"fas fa-file-excel",
-desc:"Hojas de cálculo con fórmulas y automatización."
+desc:"Plantillas automatizadas para control de datos y cálculos."
 },
 {
 id:5,
 name:"Traducción de documentos",
-price:10000,
+price:15000,
 icon:"fas fa-language",
-desc:"Traducción profesional Inglés ↔ Español."
+desc:"Traducción profesional entre inglés y español."
 },
 {
 id:6,
 name:"Creación de páginas web básicas",
 price:50000,
 icon:"fas fa-globe",
-desc:"Páginas web básicas para negocios o proyectos personales."
+desc:"Páginas web simples para negocios, portafolios o servicios."
 },
 {
 id:7,
 name:"Digitalización de documentos físicos",
-price:10000,
+price:12000,
 icon:"fas fa-file-lines",
-desc:"Convertimos documentos físicos a formato digital limpio."
+desc:"Convertimos documentos físicos en archivos digitales organizados y también ofrecemos trabajos escritos."
 },
 {
 id:8,
 name:"Corrección y mejora de textos",
 price:8000,
 icon:"fas fa-spell-check",
-desc:"Corrección ortográfica, redacción y mejora de claridad."
+desc:"Corrección ortográfica y mejora de redacción."
 }
 ]
 
@@ -523,18 +523,23 @@ card.innerHTML = `
 <div class="h-12 w-12 bg-slate-800 rounded-2xl flex items-center justify-center text-3xl mb-8 service-icon">
 <i class="${service.icon}"></i>
 </div>
+
 <h3 class="font-semibold text-2xl mb-2">${service.name}</h3>
-<p class="text-slate-400 text-sm leading-relaxed mb-8">${service.desc}</p>
-<div class="flex items-baseline justify-between">
-<div>
+
+<p class="text-slate-400 text-sm leading-relaxed mb-6">
+${service.desc}
+</p>
+
+<div class="mb-6">
 <span class="text-4xl font-semibold text-white">$${service.price.toLocaleString('es-CO')}</span>
 <span class="text-xs text-slate-400">COP</span>
 </div>
+
 <button onclick="addToCart(${service.id}); event.stopPropagation()"
-class="bg-teal-500 hover:bg-teal-600 text-white px-8 py-4 rounded-3xl text-sm font-medium transition-all">
+class="w-full bg-teal-500 hover:bg-teal-600 text-white py-4 rounded-3xl text-sm font-medium transition-all">
 Añadir al carrito
 </button>
-</div>
+`
 `
 container.appendChild(card)
 })
