@@ -10,7 +10,6 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 
-```
 :root {
 --primary: #0f172a;
 }
@@ -67,14 +66,15 @@ animation: bounce 0.6s ease;
 <span class="text-2xl font-medium text-teal-400">Optimización</span>
 </div>
 </div>
-
-```
 <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-<a href="#servicios" onclick="smoothScrollTo('servicios')" class="hover:text-teal-400 transition-colors cursor-pointer">Servicios</a>
-<a href="#como-funciona" onclick="smoothScrollTo('como-funciona')" class="hover:text-teal-400 transition-colors cursor-pointer">Cómo funciona</a>
-<a href="#contacto" onclick="smoothScrollTo('contacto')" class="hover:text-teal-400 transition-colors cursor-pointer">Contacto</a>
-</div>
+    <a href="#sobre-nosotros" onclick="smoothScrollTo('sobre-nosotros')" class="hover:text-teal-400 transition-colors cursor-pointer">Sobre nosotros</a>
 
+    <a href="#servicios" onclick="smoothScrollTo('servicios')" class="hover:text-teal-400 transition-colors cursor-pointer">Servicios</a>
+
+    <a href="#como-funciona" onclick="smoothScrollTo('como-funciona')" class="hover:text-teal-400 transition-colors cursor-pointer">Cómo funciona</a>
+
+    <a href="#contacto" onclick="smoothScrollTo('contacto')" class="hover:text-teal-400 transition-colors cursor-pointer">Contacto</a>
+</div>
 <button onclick="toggleCartModal()"
 class="relative flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-5 py-3 rounded-3xl text-sm font-medium transition-all border border-slate-700">
 <i class="fas fa-shopping-cart text-xl"></i>
@@ -641,7 +641,5 @@ document.getElementById('success-modal').style.display = 'none'
 renderServices()
 updateCartCount()
 </script>
-```
-
 </body>
 </html>
